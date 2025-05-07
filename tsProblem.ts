@@ -1,10 +1,12 @@
-function formatString(input: string, toUpper?: boolean){
+function formatString(input: string, toUpper?: boolean):string{
 if(toUpper === true || toUpper === undefined){
-  console.log(input.toUpperCase())
+  return input.toUpperCase()
 }else{
-    console.log(input.toLowerCase())
+    return input.toLowerCase()
 }
 }
+
+
 
 
 type Book =
@@ -22,19 +24,28 @@ const books :  Books = [
     { title: "Book D", rating: 3.0 }
   ];
 
-function filterByRating(items: Books){
-    console.log( items.filter(rat => rat.rating >= 4))
+function filterByRating(items: Books):Book[]{
+    return items.filter(rat => rat.rating >= 4)
 }
 
+
+
+function concatenateArrays<T>(...arrays: T[][]): T[]{
+    return ([] as T[]).concat(...arrays);
+}
   
-  filterByRating(books); 
-  // Output: [ { title: "Book A", rating: 4.5 }, { title: "Book C", rating: 5.0 } ]
+ 
+  
 
 
 
 
+const formatValue = formatString("Hello", false);
+const filterValue = filterByRating(books);
+const concatValue =concatenateArrays([1, 2], [3, 4], [5]);       // Output: ["a", "b", "c"]
+concatenateArrays([1, 2], [3, 4], [5]);     // Output: [1, 2, 3, 4, 5]
 
-formatString("Hello", false);
 
-
-
+console.log(formatValue)
+console.log(filterValue)
+console.log(concatValue)
