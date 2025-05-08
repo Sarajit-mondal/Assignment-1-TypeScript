@@ -80,12 +80,43 @@ function processValue(value: string | number): number{
 
 
 
+interface Product {
+    name: string;
+    price: number;
+  }
+
+  const products :Product[] = [
+    { name: "Pen", price: 10 },
+    { name: "Notebook", price: 25 },
+    { name: "Bag", price: 50 },
+  ];
+  function getMostExpensiveProduct(products: Product[]): Product | null{
+    if(products.length === 0){
+        return null
+    }
+    let highestPriceProduct = products[0]; 
+
+    for (const product of products) {
+      if (product.price > highestPriceProduct.price) {
+        highestPriceProduct = product;
+      }
+    }
+
+    return highestPriceProduct;
+    
+  }
+
+
+
+
+
 
 const formatValue = formatString("Hello", false);
 const filterValue = filterByRating(books);
 const concatValue =concatenateArrays([1, 2], [3, 4], [5]);
 const myCar = new Car("Toyota", 2020, "Corolla");
 const procesValue = processValue(7);
+ const mostExpensiveProduct = getMostExpensiveProduct(products);  
 
 console.log(formatValue)
 console.log(filterValue)
@@ -93,3 +124,4 @@ console.log(concatValue)
 console.log(myCar.getInfo())
 console.log(myCar.getModel())
 console.log(procesValue)
+console.log(mostExpensiveProduct)
