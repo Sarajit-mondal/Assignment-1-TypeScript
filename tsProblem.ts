@@ -131,6 +131,21 @@ interface Product {
 
 
 
+  async function squareAsync(n: number): Promise<number>{
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          if (n < 0) {
+            reject("Number must be non-negative");
+          } else {
+            resolve(n * n);
+          }
+        }, 1000); // waits 1 second
+      });
+  }
+
+
+
+
 
 
 
@@ -147,8 +162,11 @@ const concatValue =concatenateArrays([1, 2], [3, 4], [5]);
 const myCar = new Car("Toyota", 2020, "Corolla");
 const procesValue = processValue(7);
  const mostExpensiveProduct = getMostExpensiveProduct(products);  
-
  const findDayType = getDayType(Day.Saturday)
+
+ squareAsync(2)
+  .then(result => console.log("Square:", result)) // 
+  .catch(error => console.error("Error:", error));
 
 console.log(formatValue)
 console.log(filterValue)
