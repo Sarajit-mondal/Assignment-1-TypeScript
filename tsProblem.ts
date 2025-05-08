@@ -163,11 +163,13 @@ const myCar = new Car("Toyota", 2020, "Corolla");
 const procesValue = processValue(7);
  const mostExpensiveProduct = getMostExpensiveProduct(products);  
  const findDayType = getDayType(Day.Saturday)
-
  squareAsync(2)
-  .then(result => console.log("Square:", result)) // 
+  .then(result => console.log("Square:", result)) 
   .catch(error => console.error("Error:", error));
 
+
+
+  
 console.log(formatValue)
 console.log(filterValue)
 console.log(concatValue)
