@@ -15,8 +15,6 @@ type Book =
         rating : number;
     }
 type Books = Book[] 
-
-
 const books :  Books = [
     { title: "Book A", rating: 4.5 },
     { title: "Book B", rating: 3.2 },
@@ -30,6 +28,7 @@ function filterByRating(items: Books):Book[]{
 
 
 
+
 function concatenateArrays<T>(...arrays: T[][]): T[]{
     return ([] as T[]).concat(...arrays);
 }
@@ -38,14 +37,59 @@ function concatenateArrays<T>(...arrays: T[][]): T[]{
   
 
 
+class Vehicle {
+    private make : string;
+    private year : number;
+
+    constructor(make : string,year:number){
+        this.make = make;
+        this.year = year; 
+    }
+
+    getInfo():string{
+        return `Make: ${this.make}, Year: ${this.year}`;
+    }
+}
+
+class Car extends Vehicle{
+    private model : string;
+
+    constructor(make:string,year:number,model: string){
+     super(make,year)
+     this.model = model
+    }
+
+    getModel():string{
+        return `Model: ${this.model}`;
+    }
+}
+
+
+
+
+
+function processValue(value: string | number): number{
+    if(typeof value === 'string' ){
+        return value.length
+    }else{
+        return value * 2
+    }
+}
+
+
+
+
 
 
 const formatValue = formatString("Hello", false);
 const filterValue = filterByRating(books);
-const concatValue =concatenateArrays([1, 2], [3, 4], [5]);       // Output: ["a", "b", "c"]
-concatenateArrays([1, 2], [3, 4], [5]);     // Output: [1, 2, 3, 4, 5]
-
+const concatValue =concatenateArrays([1, 2], [3, 4], [5]);
+const myCar = new Car("Toyota", 2020, "Corolla");
+const procesValue = processValue(7);
 
 console.log(formatValue)
 console.log(filterValue)
 console.log(concatValue)
+console.log(myCar.getInfo())
+console.log(myCar.getModel())
+console.log(procesValue)
