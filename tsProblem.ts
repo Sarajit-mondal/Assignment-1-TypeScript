@@ -110,6 +110,36 @@ interface Product {
 
 
 
+  enum Day {
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday,
+    Saturday,
+    Sunday
+  }
+  
+  function getDayType(day: Day): string{
+    if(day === Day.Saturday || day === Day.Sunday){
+        return "Weekend"
+    }else{
+        return "Weekday"
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const formatValue = formatString("Hello", false);
 const filterValue = filterByRating(books);
@@ -118,6 +148,8 @@ const myCar = new Car("Toyota", 2020, "Corolla");
 const procesValue = processValue(7);
  const mostExpensiveProduct = getMostExpensiveProduct(products);  
 
+ const findDayType = getDayType(Day.Saturday)
+
 console.log(formatValue)
 console.log(filterValue)
 console.log(concatValue)
@@ -125,3 +157,4 @@ console.log(myCar.getInfo())
 console.log(myCar.getModel())
 console.log(procesValue)
 console.log(mostExpensiveProduct)
+console.log(findDayType)
